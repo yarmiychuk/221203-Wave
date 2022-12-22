@@ -121,6 +121,8 @@ public class Model {
                 if (table[finish[1][0]][finish[1][1]] == 0 ||
                     table[finish[0][0]][finish[0][1]] < table[finish[1][0]][finish[1][1]]) {
                         selectedFinish = new Cell(finish[0][0], finish[0][1]);
+                } else if (table[finish[1][0]][finish[1][1]] > 0) {
+                    selectedFinish = new Cell(finish[1][0], finish[1][1]);
                 }
             } else if (table[finish[1][0]][finish[1][1]] > 0) {
                 selectedFinish = new Cell(finish[1][0], finish[1][1]);
@@ -139,7 +141,7 @@ public class Model {
                     x = x - 1;
                 } else if (y > 0 && table[x][y - 1] == i - 1) {
                     y = y - 1;
-                } else if (x < table.length && table[x + 1][y] == i - 1) {
+                } else if (x < table.length - 1 && table[x + 1][y] == i - 1) {
                     x = x + 1;
                 } else {
                     y = y + 1;
@@ -149,5 +151,4 @@ public class Model {
         }
         return way;
     }
-
 }
